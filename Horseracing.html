@@ -1,0 +1,1439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Horse Racing Card Game&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>* {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>min-height: 100vh;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 1400px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.7);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: grid;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>grid-template-columns: 3fr 1fr;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>header {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>grid-column: 1 / -1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding-bottom: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: space-between;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h1 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2.5rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.round-info {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(253, 187, 45, 0.2);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.game-area {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.track {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(139, 69, 19, 0.8);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 400px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.finish-line {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>right: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>bottom: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: repeating-linear-gradient(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>to bottom,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#000,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#000 10px,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#fff 10px,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#fff 20px</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>z-index: 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.lane {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 70px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: 2px dashed #555;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.lane-label {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.position-indicator {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.horse {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 60px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 60px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: 100px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: left 0.5s ease;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>z-index: 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.hearts { background: #ff5252; color: white; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.diamonds { background: #ff5252; color: white; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.clubs { background: #4caf50; color: white; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.spades { background: #2196f3; color: white; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.game-controls {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: space-between;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.players-panel {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.5);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-height: 600px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow-y: auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.player {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: space-between;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.player.active {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(253, 187, 45, 0.3);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 2px solid #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.player-info {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.player-horses {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.horse-badge {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 25px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 25px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.horse-count {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>bottom: -5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>right: -5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #000;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.7rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wildcard-status {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.action-panel {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.5);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 12px 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #000;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button:hover {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #ffa000;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button:disabled {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #777;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: not-allowed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.card-display {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 120px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.message-box {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 60px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.history-panel {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.5);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow-y: auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-height: 800px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>grid-column: 1 / -1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.history-title {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding-bottom: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.history-content {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 1.4;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.history-item {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 8px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.penalty {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #ff5252;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.reward {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #4caf50;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.rules-btn {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>right: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.7);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.modal {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: fixed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.8);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>z-index: 10;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.modal-content {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #1a2a6c, #b21f1f);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 30px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 600px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-height: 80vh;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow-y: auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.close-btn {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>float: right;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.5rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h2 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h3 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 15px 0 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>ul {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-left: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>li {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Pre-round setup styles */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.pre-round-container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: fixed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.9);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>z-index: 20;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.pre-round-title {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2.5rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.player-setup {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 800px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.player-setup-card {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 180px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.player-setup-card h3 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.ace-display {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 3rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 80px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 10px 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 350px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 350px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 30px 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.spinning-wheel {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: conic-gradient(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#2196f3 0deg 45deg,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#ff5252 45deg 90deg,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#2196f3 90deg 135deg,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#ff5252 135deg 180deg,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#4caf50 180deg 225deg,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#ff5252 225deg 270deg,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#4caf50 270deg 315deg,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>#ff5252 315deg 360deg</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: transform 3s cubic-bezier(0.2, 0.8, 0.2, 1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 20px rgba(253, 187, 45, 0.5);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-needle {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: -20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: 50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: translateX(-50%);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 40px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>clip-path: polygon(50% 0%, 0% 100%, 100% 100%);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>z-index: 10;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-center {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: 50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: translate(-50%, -50%);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 60px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 60px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 50%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>z-index: 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #000;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 4px solid #000;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-label {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 24px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-label-1 { top: 20px; left: 50%; transform: translateX(-50%); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-label-2 { top: 50%; right: 20px; transform: translateY(-50%); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-label-3 { bottom: 20px; left: 50%; transform: translateX(-50%); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-label-4 { top: 50%; left: 20px; transform: translateY(-50%); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-label-5 { top: 30px; right: 60px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-label-6 { bottom: 30px; right: 60px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-label-7 { bottom: 30px; left: 60px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-label-8 { top: 30px; left: 60px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-result {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #fdbb2d;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>min-height: 60px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.wheel-result-suit {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.setup-controls {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@media (max-width: 1024px) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.game-controls {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.player-setup {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.wheel-container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>width: 300px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>height: 300px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;header&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h1&gt;Horse Racing Card Game&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="round-info"&gt;Round: &lt;span id="round-number"&gt;1&lt;/span&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="game-area"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="track"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="finish-line"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="lane"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="lane-label"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>Spades ♠</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="position-indicator"&gt;Position: &lt;span id="position-spades"&gt;0&lt;/span&gt;/8&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="horse spades" id="horse-spades"&gt;♠&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="lane"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="lane-label"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>Hearts ♥</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="position-indicator"&gt;Position: &lt;span id="position-hearts"&gt;0&lt;/span&gt;/8&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="horse hearts" id="horse-hearts"&gt;♥&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="lane"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="lane-label"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>Clubs ♣</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="position-indicator"&gt;Position: &lt;span id="position-clubs"&gt;0&lt;/span&gt;/8&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="horse clubs" id="horse-clubs"&gt;♣&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="lane"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="lane-label"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>Diamonds ♦</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="position-indicator"&gt;Position: &lt;span id="position-diamonds"&gt;0&lt;/span&gt;/8&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="horse diamonds" id="horse-diamonds"&gt;♦&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="game-controls"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="players-panel" id="players-panel"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h2&gt;Players&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;!-- Players will be dynamically added here --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="action-panel"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h2&gt;Game Actions&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="message-box" id="message"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>Setting up new round...</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="card-display" id="card-display"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>Draw a card to start</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button id="draw-normal"&gt;Draw from Normal Pile&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button id="draw-wild"&gt;Draw from Wildcard Pile&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button id="next-turn" disabled&gt;Next Turn&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button id="new-round"&gt;New Round&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="history-panel"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="history-title"&gt;Game History&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="history-content" id="history-content"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="history-item"&gt;Game started. All horses at position 0.&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Pre-round setup screen --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="pre-round-container" id="pre-round"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2 class="pre-round-title"&gt;Round Setup&lt;/h2&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="player-setup" id="player-setup"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- Player setup cards will be added here --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="wheel-container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Spinning Wheel&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="wheel-container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="spinning-wheel" id="spinning-wheel"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="wheel-needle"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="wheel-center"&gt;SPIN&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="wheel-label wheel-label-1"&gt;♠&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="wheel-label wheel-label-2"&gt;♥&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="wheel-label wheel-label-3"&gt;♠&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="wheel-label wheel-label-4"&gt;♦&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="wheel-label wheel-label-5"&gt;♣&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="wheel-label wheel-label-6"&gt;♥&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="wheel-label wheel-label-7"&gt;♦&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="wheel-label wheel-label-8"&gt;♣&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="wheel-result" id="wheel-result"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>Spin to determine bonus horses</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="setup-controls"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="draw-aces"&gt;Draw Aces&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="spin-wheel"&gt;Spin Wheel&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="start-round" disabled&gt;Start Round&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="rules-btn" id="rules-btn"&gt;Game Rules&lt;/button&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="modal" id="rules-modal"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="modal-content"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;span class="close-btn" id="close-rules"&gt;&amp;times;&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Horse Racing Game Rules&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p&gt;This game is played with 5 decks of poker cards. The objective is to get your horse to the finish line.&lt;/p&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Setup&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Each player starts with $5000&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Players start with one horse but can acquire more&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Horses start at position 0 and need to reach position 8 to win&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Gameplay&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Players take turns drawing cards from either the normal pile or wildcard pile&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Number cards (2-10, excluding 4): Move the corresponding horse forward 1 space&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Jack, Queen, King: Move the corresponding horse backward 1 space&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;4: Move the corresponding horse back to start (position 0)&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Ace: The player gets an additional horse of that suit&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Wildcard draws double the movement effect&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Multi-Horse Ownership&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Players can own multiple horses of different suits&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;When a player draws an Ace, they get an additional horse of that suit&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Winnings and losses are calculated based on all owned horses&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Scoring&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;When a horse wins, the owner earns points based on other horses' positions&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Other players lose points based on their horse's position&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;If a horse is at position 0 when another wins, points are doubled&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Each point represents $5&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;Scores are cumulative across rounds&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Penalties&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;If a horse is at position 0 and a J, Q, or K of that suit is drawn, the owner pays $5 to all other players ($10 if from wildcard)&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;li&gt;If a 4 is drawn, the horse moves to start and the owner pays all players based on the position lost (doubled if from wildcard)&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="close-modal"&gt;Got It!&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Game state</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const gameState = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>horses: {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>'hearts': { position: 0, element: document.getElementById('horse-hearts') },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>'diamonds': { position: 0, element: document.getElementById('horse-diamonds') },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>'clubs': { position: 0, element: document.getElementById('horse-clubs') },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>'spades': { position: 0, element: document.getElementById('horse-spades') }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>players: {},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>currentPlayer: 1,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameOver: false,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>roundNumber: 1,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>history: [],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>playerCount: 4, // Default player count</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>acePile: [], // Ace drawing pile</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>wheelResult: null, // Result of the spinning wheel</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>initialScores: {} // Store initial scores for cumulative tracking</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// DOM elements</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const messageElement = document.getElementById('message');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const cardDisplayElement = document.getElementById('card-display');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const drawNormalButton = document.getElementById('draw-normal');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const drawWildButton = document.getElementById('draw-wild');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const nextTurnButton = document.getElementById('next-turn');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const newRoundButton = document.getElementById('new-round');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const rulesButton = document.getElementById('rules-btn');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const rulesModal = document.getElementById('rules-modal');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const closeRulesButton = document.getElementById('close-rules');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const closeModalButton = document.getElementById('close-modal');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const historyContentElement = document.getElementById('history-content');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const roundNumberElement = document.getElementById('round-number');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const preRoundElement = document.getElementById('pre-round');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const playerSetupElement = document.getElementById('player-setup');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const playersPanelElement = document.getElementById('players-panel');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const drawAcesButton = document.getElementById('draw-aces');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const spinWheelButton = document.getElementById('spin-wheel');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const startRoundButton = document.getElementById('start-round');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const spinningWheelElement = document.getElementById('spinning-wheel');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const wheelResultElement = document.getElementById('wheel-result');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Initialize game</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>initializeGame();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Event listeners</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>drawNormalButton.addEventListener('click', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>drawCard(false);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>drawWildButton.addEventListener('click', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (gameState.players[gameState.currentPlayer].wildcardAvailable) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>drawCard(true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>gameState.players[gameState.currentPlayer].wildcardAvailable = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updateWildcardIndicators();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updateButtonStates();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage("You've already used your wildcard draw!");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>addHistory("Player " + gameState.currentPlayer + " tried to use wildcard but already used it");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>nextTurnButton.addEventListener('click', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>nextTurn();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>newRoundButton.addEventListener('click', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>showPreRoundSetup();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>rulesButton.addEventListener('click', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>rulesModal.style.display = 'flex';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>closeRulesButton.addEventListener('click', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>rulesModal.style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>closeModalButton.addEventListener('click', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>rulesModal.style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>drawAcesButton.addEventListener('click', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>drawAcesForPlayers();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>spinWheelButton.addEventListener('click', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>spinWheel();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>startRoundButton.addEventListener('click', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>startMainRound();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Close modal if clicked outside</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.addEventListener('click', function(event) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (event.target == rulesModal) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>rulesModal.style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Game functions</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function initializeGame() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Ask for number of players</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const playerCount = prompt("How many players? (2-8)", "4");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameState.playerCount = parseInt(playerCount) || 4;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (gameState.playerCount &lt; 2) gameState.playerCount = 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (gameState.playerCount &gt; 8) gameState.playerCount = 8;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Initialize initial scores</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>gameState.initialScores[i] = 5000;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>showPreRoundSetup();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function showPreRoundSetup() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Show pre-round setup screen</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>preRoundElement.style.display = 'flex';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Reset game state for new round</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameState.gameOver = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameState.wheelResult = null;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Create player setup UI</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>playerSetupElement.innerHTML = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>playersPanelElement.innerHTML = '&lt;h2&gt;Players&lt;/h2&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Initialize players with cumulative scores</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameState.players = {};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>gameState.players[i] = {<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>score: gameState.initialScores[i] || 5000,<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>horses: {},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>wildcardAvailable: true,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>ace: null</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>};</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// Create player setup card</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const playerCard = document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>playerCard.className = 'player-setup-card';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>playerCard.innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Player ${i}&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="ace-display" id="player-${i}-ace"&gt;?&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div&gt;Score: $&lt;span id="player-${i}-score"&gt;${gameState.players[i].score}&lt;/span&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div&gt;Horses: &lt;span id="player-${i}-horses"&gt;0&lt;/span&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>playerSetupElement.appendChild(playerCard);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// Create player panel</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const playerElement = document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>playerElement.className = 'player';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>playerElement.id = `player-${i}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>playerElement.innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="player-info"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div&gt;Player ${i} - $&lt;span id="score-${i}"&gt;${gameState.players[i].score}&lt;/span&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div class="player-horses" id="horses-${i}"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div class="wildcard-status" id="wildcard-${i}"&gt;Wildcard available&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>playersPanelElement.appendChild(playerElement);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Initialize ace pile (16 aces: 4 of each suit)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameState.acePile = [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const suits = ['hearts', 'diamonds', 'clubs', 'spades'];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (const suit of suits) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>for (let i = 0; i &lt; 4; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>gameState.acePile.push(suit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Shuffle ace pile</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>shuffleArray(gameState.acePile);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Reset wheel</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>spinningWheelElement.style.transform = 'rotate(0deg)';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>wheelResultElement.innerHTML = 'Spin to determine bonus horses';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Enable/disable buttons</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>drawAcesButton.disabled = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>spinWheelButton.disabled = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>startRoundButton.disabled = true;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>showMessage("Click 'Draw Aces' to assign horses to players");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function drawAcesForPlayers() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Draw aces for each player</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (gameState.acePile.length &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>const aceSuit = gameState.acePile.pop();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>gameState.players[i].ace = aceSuit;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>gameState.players[i].horses[aceSuit] = 1;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>// Update UI</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>const aceDisplay = document.getElementById(`player-${i}-ace`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>aceDisplay.textContent = getSuitSymbol(aceSuit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>aceDisplay.className = 'ace-display ' + aceSuit;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>const horsesCount = document.getElementById(`player-${i}-horses`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>horsesCount.textContent = '1';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Enable wheel spinning</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>drawAcesButton.disabled = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>spinWheelButton.disabled = false;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>showMessage("Aces drawn! Now spin the wheel to determine bonus horses");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function spinWheel() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Disable spin button during animation</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>spinWheelButton.disabled = true;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Generate random rotation (5-10 full rotations plus random angle)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const rotations = 5 + Math.floor(Math.random() * 5);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const randomAngle = Math.floor(Math.random() * 360);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const totalRotation = rotations * 360 + randomAngle;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Apply rotation with animation</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>spinningWheelElement.style.transform = `rotate(${totalRotation}deg)`;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Calculate result based on final angle</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const finalAngle = totalRotation % 360;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>let resultSuit;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// Determine which section the pointer landed on</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// The needle is at the top (0 degrees), so we need to find which segment is at the bottom (180 degrees opposite)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const needleAngle = 180; // Needle is at top (0 degrees), opposite is 180</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const effectiveAngle = (finalAngle + needleAngle) % 360;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (effectiveAngle &gt;= 0 &amp;&amp; effectiveAngle &lt; 45) resultSuit = 'spades';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>else if (effectiveAngle &gt;= 45 &amp;&amp; effectiveAngle &lt; 90) resultSuit = 'hearts';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>else if (effectiveAngle &gt;= 90 &amp;&amp; effectiveAngle &lt; 135) resultSuit = 'spades';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>else if (effectiveAngle &gt;= 135 &amp;&amp; effectiveAngle &lt; 180) resultSuit = 'diamonds';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>else if (effectiveAngle &gt;= 180 &amp;&amp; effectiveAngle &lt; 225) resultSuit = 'clubs';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>else if (effectiveAngle &gt;= 225 &amp;&amp; effectiveAngle &lt; 270) resultSuit = 'hearts';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>else if (effectiveAngle &gt;= 270 &amp;&amp; effectiveAngle &lt; 315) resultSuit = 'diamonds';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>else resultSuit = 'clubs';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>gameState.wheelResult = resultSuit;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const suitSymbol = getSuitSymbol(resultSuit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>wheelResultElement.innerHTML = `Wheel landed on &lt;span class="wheel-result-suit"&gt;${suitSymbol}&lt;/span&gt;! Bonus horses for ${resultSuit} players!`;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// Award bonus horses to players with matching suit</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>let bonusCount = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (gameState.players[i].ace === resultSuit &amp;&amp; gameState.acePile.length &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const bonusSuit = gameState.acePile.pop();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>if (!gameState.players[i].horses[bonusSuit]) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>gameState.players[i].horses[bonusSuit] = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>gameState.players[i].horses[bonusSuit] += 1;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>// Update UI</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const horsesCount = document.getElementById(`player-${i}-horses`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let totalHorses = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>for (const suit in gameState.players[i].horses) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>totalHorses += gameState.players[i].horses[suit];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>horsesCount.textContent = totalHorses;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>bonusCount++;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>addHistory(`Wheel landed on ${resultSuit}. ${bonusCount} players received bonus horses.`);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// Enable start round button</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>startRoundButton.disabled = false;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage(`Wheel landed on ${resultSuit}! Click 'Start Round' to begin.`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}, 3000);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function startMainRound() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Hide pre-round setup</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>preRoundElement.style.display = 'none';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Update player displays with their horses</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updatePlayerHorseDisplay(i);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Reset horse positions</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (const suit in gameState.horses) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>gameState.horses[suit].position = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updateHorsePosition(suit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updatePositionIndicator(suit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Set first player</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameState.currentPlayer = 1;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Update active player highlight</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const playerElement = document.getElementById(`player-${i}`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (i === gameState.currentPlayer) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>playerElement.classList.add('active');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>playerElement.classList.remove('active');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Update button states</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updateButtonStates();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Add remaining aces to normal deck (simulated)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>addHistory(`Added ${gameState.acePile.length} remaining Aces to the normal deck.`);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>showMessage(`Round ${gameState.roundNumber} started! Player ${gameState.currentPlayer}'s turn.`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>addHistory(`Round ${gameState.roundNumber} started!`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function drawCard(isWildcard) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (gameState.gameOver) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage("The round is over. Start a new round to continue.");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Simulate drawing a card</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const suits = ['hearts', 'diamonds', 'clubs', 'spades'];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const randomSuit = suits[Math.floor(Math.random() * suits.length)];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const randomValue = values[Math.floor(Math.random() * values.length)];</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Display the card</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let suitSymbol = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>switch(randomSuit) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'hearts': suitSymbol = '♥'; break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'diamonds': suitSymbol = '♦'; break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'clubs': suitSymbol = '♣'; break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'spades': suitSymbol = '♠'; break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>cardDisplayElement.innerHTML = `${randomValue} ${suitSymbol}`;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Apply card effect</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>applyCardEffect(randomSuit, randomValue, isWildcard);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Check for win condition</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>checkWinCondition();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Update UI</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updateButtonStates();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function applyCardEffect(suit, value, isWildcard) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const multiplier = isWildcard ? 2 : 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let message = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let historyMessage = '';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>switch(value) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case '2':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case '3':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case '5':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case '6':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case '7':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case '8':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case '9':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case '10':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>moveHorse(suit, 1 * multiplier);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>message = `${suit} horse moves forward ${multiplier} space(s)!`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'J':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'Q':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'K':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>// Check if horse is at position 0 for penalty</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (gameState.horses[suit].position === 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const penaltyAmount = 5 * multiplier;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const playerIds = findPlayerIdsBySuit(suit);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>if (playerIds.length &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>// Each owner pays all other players</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>for (const playerId of playerIds) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>if (i !== playerId) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>gameState.players[i].score += penaltyAmount;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>gameState.players[playerId].score -= penaltyAmount;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>message = `Penalty! ${suit} horse at position 0. Owners pay $${penaltyAmount} to each player!`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>addHistory(historyMessage, 'penalty');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>// Update scores</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>updateScores();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>moveHorse(suit, -1 * multiplier);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (!message) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>message = `${suit} horse moves backward ${multiplier} space(s)!`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case '4':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>// Calculate penalty based on current position</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>const currentPosition = gameState.horses[suit].position;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (currentPosition &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const penaltyAmount = currentPosition * 5 * multiplier;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const playerIds = findPlayerIdsBySuit(suit);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>if (playerIds.length &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>// Each owner pays all other players</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>for (const playerId of playerIds) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>if (i !== playerId) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>gameState.players[i].score += penaltyAmount;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                            </span>gameState.players[playerId].score -= penaltyAmount;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>message = `Penalty! ${suit} horse moves to start. Owners pay $${penaltyAmount} to each player!`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>addHistory(historyMessage, 'penalty');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>// Update scores</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>updateScores();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>moveHorseToStart(suit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (!message) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>message = `${suit} horse moves back to start!`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'A':</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>// Current player gets an additional horse of this suit</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (!gameState.players[gameState.currentPlayer].horses[suit]) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>gameState.players[gameState.currentPlayer].horses[suit] = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>gameState.players[gameState.currentPlayer].horses[suit] += 1;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>updatePlayerHorseDisplay(gameState.currentPlayer);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>message = `Ace! Player ${gameState.currentPlayer} now has ${gameState.players[gameState.currentPlayer].horses[suit]} ${suit} horses!`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>historyMessage = `Player ${gameState.currentPlayer} drew Ace of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>addHistory(historyMessage, 'reward');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>break;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (message &amp;&amp; !historyMessage) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>addHistory(historyMessage);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>showMessage(message);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function findPlayerIdsBySuit(suit) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const playerIds = [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (gameState.players[i].horses[suit] &amp;&amp; gameState.players[i].horses[suit] &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>playerIds.push(i);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return playerIds;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function moveHorse(suit, spaces) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const oldPosition = gameState.horses[suit].position;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameState.horses[suit].position += spaces;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Ensure position is within bounds (0-8)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (gameState.horses[suit].position &lt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>gameState.horses[suit].position = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else if (gameState.horses[suit].position &gt; 8) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>gameState.horses[suit].position = 8;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updateHorsePosition(suit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updatePositionIndicator(suit);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Add to history if position changed</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (oldPosition !== gameState.horses[suit].position) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>addHistory(`${suit} horse moved from position ${oldPosition} to ${gameState.horses[suit].position}`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function moveHorseToStart(suit) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const oldPosition = gameState.horses[suit].position;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameState.horses[suit].position = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updateHorsePosition(suit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updatePositionIndicator(suit);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Add to history</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>addHistory(`${suit} horse moved from position ${oldPosition} to 0`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function updateHorsePosition(suit) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const horse = gameState.horses[suit];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Calculate position based on track width (approximate)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const trackWidth = document.querySelector('.track').offsetWidth - 180;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const positionPercentage = (horse.position / 8) * trackWidth;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>horse.element.style.left = `${100 + positionPercentage}px`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function updateHorsePositions() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (const suit in gameState.horses) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updateHorsePosition(suit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function updatePositionIndicator(suit) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById(`position-${suit}`).textContent = gameState.horses[suit].position;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function updatePositionIndicators() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (const suit in gameState.horses) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updatePositionIndicator(suit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function updateWildcardIndicators() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const element = document.getElementById(`wildcard-${i}`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (gameState.players[i].wildcardAvailable) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>element.textContent = "Wildcard available";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>element.style.color = "#fdbb2d";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>element.textContent = "Wildcard used";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>element.style.color = "#ff5252";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function updateButtonStates() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (gameState.gameOver) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>drawNormalButton.disabled = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>drawWildButton.disabled = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>nextTurnButton.disabled = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>drawNormalButton.disabled = false;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (gameState.players[gameState.currentPlayer].wildcardAvailable) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>drawWildButton.disabled = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>drawWildButton.disabled = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>nextTurnButton.disabled = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function updatePlayerHorseDisplay(playerId) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const horsesContainer = document.getElementById(`horses-${playerId}`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>horsesContainer.innerHTML = '';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (const suit in gameState.players[playerId].horses) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (gameState.players[playerId].horses[suit] &gt; 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>const horseBadge = document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>horseBadge.className = 'horse-badge ' + suit;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>horseBadge.innerHTML = getSuitSymbol(suit) +<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>`&lt;span class="horse-count"&gt;${gameState.players[playerId].horses[suit]}&lt;/span&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>horsesContainer.appendChild(horseBadge);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function updatePlayerHorseDisplays() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updatePlayerHorseDisplay(i);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function getSuitSymbol(suit) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>switch(suit) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'hearts': return '♥';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'diamonds': return '♦';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'clubs': return '♣';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>case 'spades': return '♠';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>default: return '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function updateScores() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>document.getElementById(`score-${i}`).textContent = gameState.players[i].score;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>document.getElementById(`player-${i}-score`).textContent = gameState.players[i].score;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// Store the score for the next round</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>gameState.initialScores[i] = gameState.players[i].score;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function checkWinCondition() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (const suit in gameState.horses) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (gameState.horses[suit].position &gt;= 8) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>gameState.gameOver = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>calculateScores(suit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>updateButtonStates();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>return true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function calculateScores(winningSuit) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const winningPlayerIds = findPlayerIdsBySuit(winningSuit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (winningPlayerIds.length === 0) return;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let historyMessage = `Round over! ${winningSuit} horse wins!`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>addHistory(historyMessage);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Calculate scores based on final positions</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (const suit in gameState.horses) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const playerIds = findPlayerIdsBySuit(suit);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (playerIds.length === 0) continue;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const horsePosition = gameState.horses[suit].position;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const pointDifference = 8 - horsePosition;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (suit === winningSuit) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>// Winners gain points based on other horses' positions</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>for (const playerId of winningPlayerIds) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let totalPoints = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>for (const otherSuit in gameState.horses) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>if (otherSuit !== winningSuit) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>const otherPosition = gameState.horses[otherSuit].position;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>let points = (8 - otherPosition) * 5 * gameState.players[playerId].horses[winningSuit];</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>// Double points if horse is at position 0</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>if (otherPosition === 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                        </span>points *= 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>totalPoints += points;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>gameState.players[playerId].score += points;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                                    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>historyMessage = `Player ${playerId} gains $${points} from ${otherSuit} horse at position ${otherPosition}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                    </span>addHistory(historyMessage, 'reward');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>// Losers lose points based on their position</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>for (const playerId of playerIds) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let points = pointDifference * 5 * gameState.players[playerId].horses[suit];</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>// Double points if horse is at position 0</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>if (horsePosition === 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                                </span>points *= 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>gameState.players[playerId].score -= points;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>historyMessage = `Player ${playerId} loses $${points} for ${suit} horse at position ${horsePosition}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>addHistory(historyMessage, 'penalty');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Update scores display</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updateScores();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Increment round number</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameState.roundNumber++;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>roundNumberElement.textContent = gameState.roundNumber;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>showMessage(`Game over! ${winningSuit} horse wins!`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function nextTurn() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Reset UI for next turn</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>cardDisplayElement.innerHTML = "Draw a card to continue";</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Move to next player</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameState.currentPlayer = gameState.currentPlayer % gameState.playerCount + 1;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Update active player highlight</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= gameState.playerCount; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const playerElement = document.getElementById(`player-${i}`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (i === gameState.currentPlayer) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>playerElement.classList.add('active');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>playerElement.classList.remove('active');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Update button states for the new player</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updateButtonStates();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>showMessage(`Player ${gameState.currentPlayer}'s turn. Draw a card!`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>addHistory(`Player ${gameState.currentPlayer}'s turn`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function showMessage(msg) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>messageElement.textContent = msg;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function addHistory(message, type) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const historyItem = document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>historyItem.className = 'history-item';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (type === 'penalty') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>historyItem.classList.add('penalty');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else if (type === 'reward') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>historyItem.classList.add('reward');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>historyItem.textContent = message;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>historyContentElement.prepend(historyItem);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Keep only the last 50 history items</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (historyContentElement.children.length &gt; 50) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>historyContentElement.removeChild(historyContentElement.lastChild);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Add to game state history</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameState.history.push(message);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function shuffleArray(array) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = array.length - 1; i &gt; 0; i--) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const j = Math.floor(Math.random() * (i + 1));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>[array[i], array[j]] = [array[j], array[i]];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return array;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Adjust horse positions on window resize</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.addEventListener('resize', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updateHorsePositions();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
