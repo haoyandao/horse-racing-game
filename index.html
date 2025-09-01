@@ -16,7 +16,7 @@
             background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
             color: #fff;
             min-height: 100vh;
-            padding: 20px;
+            padding: 10px;
         }
         
         .container {
@@ -24,63 +24,66 @@
             margin: 0 auto;
             background: rgba(0, 0, 0, 0.7);
             border-radius: 15px;
-            padding: 20px;
+            padding: 15px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             display: grid;
             grid-template-columns: 3fr 1fr;
-            gap: 20px;
+            gap: 15px;
         }
         
         header {
             grid-column: 1 / -1;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 2px solid #fdbb2d;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            gap: 10px;
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: #fdbb2d;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .round-info {
-            font-size: 1.2rem;
+            font-size: 1rem;
             background: rgba(253, 187, 45, 0.2);
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 20px;
         }
         
         .game-area {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
         
         .track {
             background: rgba(139, 69, 19, 0.8);
             border-radius: 10px;
-            padding: 15px;
+            padding: 10px;
             position: relative;
-            height: 400px;
+            height: 300px;
+            overflow: hidden;
         }
         
         .finish-line {
             position: absolute;
-            right: 20px;
+            right: 10px;
             top: 0;
             bottom: 0;
-            width: 5px;
+            width: 4px;
             background: repeating-linear-gradient(
                 to bottom,
                 #000,
-                #000 10px,
-                #fff 10px,
-                #fff 20px
+                #000 8px,
+                #fff 8px,
+                #fff 16px
             );
             z-index: 1;
         }
@@ -88,38 +91,38 @@
         .lane {
             display: flex;
             align-items: center;
-            height: 70px;
-            margin-bottom: 10px;
+            height: 55px;
+            margin-bottom: 8px;
             border-bottom: 2px dashed #555;
             position: relative;
         }
         
         .lane-label {
-            width: 100px;
+            width: 80px;
             text-align: center;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         
         .position-indicator {
-            font-size: 0.9rem;
-            margin-top: 5px;
+            font-size: 0.8rem;
+            margin-top: 3px;
             color: #fdbb2d;
         }
         
         .horse {
-            width: 60px;
-            height: 60px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.5rem;
             position: absolute;
-            left: 100px;
+            left: 80px;
             transition: left 0.5s ease;
             z-index: 2;
         }
@@ -131,24 +134,23 @@
         
         .game-controls {
             display: flex;
-            justify-content: space-between;
-            gap: 20px;
+            flex-direction: column;
+            gap: 15px;
         }
         
         .players-panel {
-            flex: 1;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
-            padding: 15px;
-            max-height: 600px;
+            padding: 12px;
+            max-height: 300px;
             overflow-y: auto;
         }
         
         .player {
             display: flex;
             justify-content: space-between;
-            padding: 10px;
-            margin-bottom: 10px;
+            padding: 8px;
+            margin-bottom: 8px;
             border-radius: 5px;
             background: rgba(255, 255, 255, 0.1);
         }
@@ -167,18 +169,18 @@
         .player-horses {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
-            margin-top: 5px;
+            gap: 4px;
+            margin-top: 4px;
         }
         
         .horse-badge {
-            width: 25px;
-            height: 25px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             position: relative;
         }
         
@@ -189,9 +191,9 @@
             background: #fdbb2d;
             color: #000;
             border-radius: 50%;
-            width: 16px;
-            height: 16px;
-            font-size: 0.7rem;
+            width: 14px;
+            height: 14px;
+            font-size: 0.6rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -199,23 +201,22 @@
         }
         
         .wildcard-status {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: #fdbb2d;
-            margin-top: 5px;
+            margin-top: 4px;
         }
         
         .action-panel {
-            flex: 1;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
-            padding: 15px;
+            padding: 12px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
         
         button {
-            padding: 12px 20px;
+            padding: 10px 15px;
             border: none;
             border-radius: 5px;
             background: #fdbb2d;
@@ -223,6 +224,7 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
         
         button:hover {
@@ -237,39 +239,41 @@
         }
         
         .card-display {
-            height: 120px;
+            height: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
         }
         
         .message-box {
-            height: 60px;
+            height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 10px;
+            padding: 8px;
             text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .history-panel {
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
-            padding: 15px;
+            padding: 12px;
             overflow-y: auto;
-            max-height: 800px;
+            max-height: 300px;
             grid-column: 1 / -1;
         }
         
         .history-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
             color: #fdbb2d;
             text-align: center;
             border-bottom: 1px solid #fdbb2d;
@@ -277,13 +281,13 @@
         }
         
         .history-content {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             line-height: 1.4;
         }
         
         .history-item {
-            margin-bottom: 8px;
-            padding: 8px;
+            margin-bottom: 6px;
+            padding: 6px;
             border-radius: 5px;
             background: rgba(255, 255, 255, 0.1);
         }
@@ -297,12 +301,15 @@
         }
         
         .rules-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            position: fixed;
+            top: 15px;
+            right: 15px;
             background: rgba(0, 0, 0, 0.7);
             color: #fdbb2d;
             border: 1px solid #fdbb2d;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            z-index: 100;
         }
         
         .modal {
@@ -316,13 +323,14 @@
             z-index: 10;
             justify-content: center;
             align-items: center;
+            padding: 15px;
         }
         
         .modal-content {
             background: linear-gradient(135deg, #1a2a6c, #b21f1f);
-            padding: 30px;
+            padding: 20px;
             border-radius: 15px;
-            max-width: 600px;
+            max-width: 100%;
             max-height: 80vh;
             overflow-y: auto;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -336,21 +344,24 @@
         
         h2 {
             color: #fdbb2d;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
         }
         
         h3 {
             color: #fdbb2d;
-            margin: 15px 0 10px;
+            margin: 12px 0 8px;
+            font-size: 1.2rem;
         }
         
         ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
+            margin-left: 15px;
+            margin-bottom: 12px;
         }
         
         li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
         }
         
         /* Pre-round setup styles */
@@ -366,49 +377,53 @@
             justify-content: center;
             align-items: center;
             z-index: 20;
-            gap: 20px;
+            gap: 15px;
+            padding: 15px;
+            overflow-y: auto;
         }
         
         .pre-round-title {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: #fdbb2d;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            text-align: center;
         }
         
         .player-setup {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
-            max-width: 800px;
-            margin-bottom: 30px;
+            max-width: 100%;
+            margin-bottom: 20px;
         }
         
         .player-setup-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 15px;
-            width: 180px;
+            padding: 12px;
+            width: 150px;
             text-align: center;
         }
         
         .player-setup-card h3 {
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
         }
         
         .ace-display {
-            font-size: 3rem;
-            height: 80px;
+            font-size: 2.5rem;
+            height: 70px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 10px 0;
+            margin: 8px 0;
         }
         
         .spinning-wheel {
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             background: conic-gradient(
                 #2196f3 0deg 45deg, 
@@ -421,7 +436,7 @@
                 #ff5252 315deg 360deg
             );
             position: relative;
-            margin: 20px 0;
+            margin: 15px 0;
             transition: transform 3s cubic-bezier(0.2, 0.8, 0.2, 1);
             box-shadow: 0 0 20px rgba(253, 187, 45, 0.5);
             display: flex;
@@ -431,19 +446,19 @@
         
         .wheel-pointer {
             position: absolute;
-            top: -20px;
+            top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 20px;
-            height: 40px;
+            width: 15px;
+            height: 30px;
             background: #fdbb2d;
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
             z-index: 2;
         }
         
         .wheel-center {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background: #fdbb2d;
             border-radius: 50%;
             z-index: 1;
@@ -452,46 +467,225 @@
             align-items: center;
             font-weight: bold;
             color: #000;
+            font-size: 0.8rem;
         }
         
         .wheel-label {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 1.2rem;
+            top: 8px;
+            left: 8px;
+            font-size: 1rem;
             color: #fdbb2d;
+            text-align: center;
+            width: calc(100% - 16px);
         }
         
         .setup-controls {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
         }
         
         .wheel-section-label {
             position: absolute;
             color: white;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
         
-        .wheel-section-label:nth-child(1) { top: 20px; left: 50%; transform: translateX(-50%); }
-        .wheel-section-label:nth-child(2) { top: 50%; right: 20px; transform: translateY(-50%); }
-        .wheel-section-label:nth-child(3) { bottom: 20px; left: 50%; transform: translateX(-50%); }
-        .wheel-section-label:nth-child(4) { top: 50%; left: 20px; transform: translateY(-50%); }
+        .wheel-section-label:nth-child(1) { top: 15px; left: 50%; transform: translateX(-50%); }
+        .wheel-section-label:nth-child(2) { top: 50%; right: 15px; transform: translateY(-50%); }
+        .wheel-section-label:nth-child(3) { bottom: 15px; left: 50%; transform: translateX(-50%); }
+        .wheel-section-label:nth-child(4) { top: 50%; left: 15px; transform: translateY(-50%); }
         
-        @media (max-width: 1024px) {
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
+                padding: 10px;
+                gap: 10px;
             }
             
-            .game-controls {
+            header {
                 flex-direction: column;
+                gap: 8px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .track {
+                height: 250px;
+                padding: 8px;
+            }
+            
+            .lane {
+                height: 45px;
+                margin-bottom: 6px;
+            }
+            
+            .lane-label {
+                width: 70px;
+                font-size: 0.9rem;
+            }
+            
+            .horse {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+                left: 70px;
+            }
+            
+            .players-panel, .action-panel {
+                max-height: 250px;
+            }
+            
+            .card-display {
+                height: 80px;
+                font-size: 1.5rem;
+            }
+            
+            .message-box {
+                height: 40px;
+                font-size: 0.9rem;
+            }
+            
+            button {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .history-panel {
+                max-height: 250px;
+            }
+            
+            .player-setup-card {
+                width: 130px;
+                padding: 10px;
+            }
+            
+            .spinning-wheel {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .pre-round-title {
+                font-size: 1.5rem;
+            }
+            
+            .modal-content {
+                padding: 15px;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            
+            .container {
+                padding: 8px;
+            }
+            
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            .track {
+                height: 220px;
+            }
+            
+            .lane {
+                height: 40px;
+            }
+            
+            .lane-label {
+                width: 60px;
+                font-size: 0.8rem;
+            }
+            
+            .horse {
+                width: 35px;
+                height: 35px;
+                font-size: 1.1rem;
+                left: 60px;
             }
             
             .player-setup {
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            .player-setup-card {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .spinning-wheel {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .wheel-section-label {
+                font-size: 1rem;
+            }
+            
+            .setup-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .setup-controls button {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .rules-btn {
+                top: 10px;
+                right: 10px;
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Orientation-specific adjustments */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .track {
+                height: 200px;
+            }
+            
+            .lane {
+                height: 35px;
+            }
+            
+            .horse {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+            
+            .players-panel, .action-panel {
+                max-height: 200px;
+            }
+            
+            .pre-round-container {
+                justify-content: flex-start;
+                padding-top: 20px;
+            }
+            
+            .player-setup {
+                margin-bottom: 15px;
             }
         }
     </style>
@@ -667,7 +861,8 @@
                 playerCount: 4, // Default player count
                 acePile: [], // Ace drawing pile
                 wheelResult: null, // Result of the spinning wheel
-                initialScores: {} // Store initial scores for cumulative tracking
+                initialScores: {}, // Store initial scores for cumulative tracking
+                hasDrawnThisTurn: false // Track if the current player has drawn a card this turn
             };
             
             // DOM elements
@@ -775,6 +970,7 @@
                 // Reset game state for new round
                 gameState.gameOver = false;
                 gameState.wheelResult = null;
+                gameState.hasDrawnThisTurn = false;
                 
                 // Create player setup UI
                 playerSetupElement.innerHTML = '';
@@ -944,6 +1140,7 @@
                 
                 // Set first player
                 gameState.currentPlayer = 1;
+                gameState.hasDrawnThisTurn = false;
                 
                 // Update active player highlight
                 for (let i = 1; i <= gameState.playerCount; i++) {
@@ -970,6 +1167,9 @@
                     showMessage("The round is over. Start a new round to continue.");
                     return;
                 }
+                
+                // Mark that the player has drawn this turn
+                gameState.hasDrawnThisTurn = true;
                 
                 // Simulate drawing a card
                 const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
@@ -1015,315 +1215,260 @@
                     case '10':
                         moveHorse(suit, 1 * multiplier);
                         message = `${suit} horse moves forward ${multiplier} space(s)!`;
-                        historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;
+                        historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} (${isWildcard ? 'Wildcard' : 'Normal'}) - ${suit} moves forward ${multiplier}`;
                         break;
                     case 'J':
                     case 'Q':
                     case 'K':
-                        // Check if horse is at position 0 for penalty
+                        moveHorse(suit, -1 * multiplier);
+                        message = `${suit} horse moves backward ${multiplier} space(s)!`;
+                        historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} (${isWildcard ? 'Wildcard' : 'Normal'}) - ${suit} moves backward ${multiplier}`;
+                        
+                        // Apply penalty if horse is at position 0
                         if (gameState.horses[suit].position === 0) {
                             const penaltyAmount = 5 * multiplier;
-                            const playerIds = findPlayerIdsBySuit(suit);
+                            message += ` Penalty: ${suit} owner pays $${penaltyAmount} to all players!`;
+                            historyMessage += ` - Penalty: $${penaltyAmount} paid to all players`;
                             
-                            if (playerIds.length > 0) {
-                                // Each owner pays all other players
-                                for (const playerId of playerIds) {
-                                    for (let i = 1; i <= gameState.playerCount; i++) {
-                                        if (i !== playerId) {
-                                            gameState.players[i].score += penaltyAmount;
-                                            gameState.players[playerId].score -= penaltyAmount;
+                            // Find owner of the horse
+                            for (let i = 1; i <= gameState.playerCount; i++) {
+                                if (gameState.players[i].horses[suit]) {
+                                    // Owner pays each other player
+                                    for (let j = 1; j <= gameState.playerCount; j++) {
+                                        if (i !== j) {
+                                            gameState.players[j].score += penaltyAmount;
+                                            gameState.players[i].score -= penaltyAmount;
                                         }
                                     }
+                                    break;
                                 }
-                                
-                                message = `Penalty! ${suit} horse at position 0. Owners pay $${penaltyAmount} to each player!`;
-                                historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;
-                                addHistory(historyMessage, 'penalty');
-                                
-                                // Update scores
-                                updateScores();
                             }
-                        }
-                        
-                        moveHorse(suit, -1 * multiplier);
-                        if (!message) {
-                            message = `${suit} horse moves backward ${multiplier} space(s)!`;
-                            historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;
                         }
                         break;
                     case '4':
-                        // Calculate penalty based on current position
-                        const currentPosition = gameState.horses[suit].position;
-                        if (currentPosition > 0) {
-                            const penaltyAmount = currentPosition * 5 * multiplier;
-                            const playerIds = findPlayerIdsBySuit(suit);
+                        const positionLost = gameState.horses[suit].position;
+                        moveHorse(suit, -positionLost * multiplier);
+                        message = `${suit} horse moves back to start!`;
+                        historyMessage = `Player ${gameState.currentPlayer} drew 4 of ${suit} (${isWildcard ? 'Wildcard' : 'Normal'}) - ${suit} moves back to start`;
+                        
+                        // Apply penalty based on position lost
+                        if (positionLost > 0) {
+                            const penaltyAmount = positionLost * 5 * multiplier;
+                            message += ` Penalty: ${suit} owner pays $${penaltyAmount} to all players!`;
+                            historyMessage += ` - Penalty: $${penaltyAmount} paid to all players`;
                             
-                            if (playerIds.length > 0) {
-                                // Each owner pays all other players
-                                for (const playerId of playerIds) {
-                                    for (let i = 1; i <= gameState.playerCount; i++) {
-                                        if (i !== playerId) {
-                                            gameState.players[i].score += penaltyAmount;
-                                            gameState.players[playerId].score -= penaltyAmount;
+                            // Find owner of the horse
+                            for (let i = 1; i <= gameState.playerCount; i++) {
+                                if (gameState.players[i].horses[suit]) {
+                                    // Owner pays each other player
+                                    for (let j = 1; j <= gameState.playerCount; j++) {
+                                        if (i !== j) {
+                                            gameState.players[j].score += penaltyAmount;
+                                            gameState.players[i].score -= penaltyAmount;
                                         }
                                     }
+                                    break;
                                 }
-                                
-                                message = `Penalty! ${suit} horse moves to start. Owners pay $${penaltyAmount} to each player!`;
-                                historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;
-                                addHistory(historyMessage, 'penalty');
-                                
-                                // Update scores
-                                updateScores();
                             }
-                        }
-                        
-                        moveHorseToStart(suit);
-                        if (!message) {
-                            message = `${suit} horse moves back to start!`;
-                            historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;
                         }
                         break;
                     case 'A':
-                        // Current player gets an additional horse of this suit
-                        if (!gameState.players[gameState.currentPlayer].horses[suit]) {
-                            gameState.players[gameState.currentPlayer].horses[suit] = 0;
+                        // Player gets an additional horse of this suit
+                        const player = gameState.currentPlayer;
+                        if (!gameState.players[player].horses[suit]) {
+                            gameState.players[player].horses[suit] = 0;
                         }
-                        gameState.players[gameState.currentPlayer].horses[suit] += 1;
-                        
-                        updatePlayerHorseDisplay(gameState.currentPlayer);
-                        
-                        message = `Ace! Player ${gameState.currentPlayer} now has ${gameState.players[gameState.currentPlayer].horses[suit]} ${suit} horses!`;
-                        historyMessage = `Player ${gameState.currentPlayer} drew Ace of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;
-                        addHistory(historyMessage, 'reward');
+                        gameState.players[player].horses[suit] += 1;
+                        message = `Player ${player} gets an additional ${suit} horse!`;
+                        historyMessage = `Player ${player} drew Ace of ${suit} (${isWildcard ? 'Wildcard' : 'Normal'}) - Gains an additional ${suit} horse`;
+                        updatePlayerHorseDisplay(player);
                         break;
                 }
                 
-                if (message && !historyMessage) {
-                    historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} from ${isWildcard ? 'wildcard' : 'normal'} pile. ${message}`;
-                    addHistory(historyMessage);
-                }
-                
                 showMessage(message);
-            }
-            
-            function findPlayerIdsBySuit(suit) {
-                const playerIds = [];
+                addHistory(historyMessage);
+                
+                // Update scores display
                 for (let i = 1; i <= gameState.playerCount; i++) {
-                    if (gameState.players[i].horses[suit] && gameState.players[i].horses[suit] > 0) {
-                        playerIds.push(i);
-                    }
+                    document.getElementById(`score-${i}`).textContent = gameState.players[i].score;
+                    document.getElementById(`player-${i}-score`).textContent = gameState.players[i].score;
                 }
-                return playerIds;
             }
             
             function moveHorse(suit, spaces) {
-                const oldPosition = gameState.horses[suit].position;
                 gameState.horses[suit].position += spaces;
                 
-                // Ensure position is within bounds (0-8)
+                // Ensure position doesn't go below 0
                 if (gameState.horses[suit].position < 0) {
                     gameState.horses[suit].position = 0;
-                } else if (gameState.horses[suit].position > 8) {
-                    gameState.horses[suit].position = 8;
                 }
                 
                 updateHorsePosition(suit);
                 updatePositionIndicator(suit);
-                
-                // Add to history if position changed
-                if (oldPosition !== gameState.horses[suit].position) {
-                    addHistory(`${suit} horse moved from position ${oldPosition} to ${gameState.horses[suit].position}`);
-                }
-            }
-            
-            function moveHorseToStart(suit) {
-                const oldPosition = gameState.horses[suit].position;
-                gameState.horses[suit].position = 0;
-                updateHorsePosition(suit);
-                updatePositionIndicator(suit);
-                
-                // Add to history
-                addHistory(`${suit} horse moved from position ${oldPosition} to 0`);
             }
             
             function updateHorsePosition(suit) {
                 const horse = gameState.horses[suit];
-                // Calculate position based on track width (approximate)
-                const trackWidth = document.querySelector('.track').offsetWidth - 180;
-                const positionPercentage = (horse.position / 8) * trackWidth;
-                horse.element.style.left = `${100 + positionPercentage}px`;
-            }
-            
-            function updateHorsePositions() {
-                for (const suit in gameState.horses) {
-                    updateHorsePosition(suit);
-                }
+                const trackWidth = document.querySelector('.track').offsetWidth - 140;
+                const positionPercentage = (horse.position / 8) * 100;
+                const leftPosition = 80 + (trackWidth * (positionPercentage / 100));
+                
+                horse.element.style.left = `${leftPosition}px`;
             }
             
             function updatePositionIndicator(suit) {
                 document.getElementById(`position-${suit}`).textContent = gameState.horses[suit].position;
             }
             
-            function updatePositionIndicators() {
-                for (const suit in gameState.horses) {
-                    updatePositionIndicator(suit);
+            function updatePlayerHorseDisplay(playerId) {
+                const player = gameState.players[playerId];
+                const horsesElement = document.getElementById(`horses-${playerId}`);
+                horsesElement.innerHTML = '';
+                
+                for (const suit in player.horses) {
+                    if (player.horses[suit] > 0) {
+                        const horseBadge = document.createElement('div');
+                        horseBadge.className = `horse-badge ${suit}`;
+                        horseBadge.textContent = getSuitSymbol(suit);
+                        
+                        const horseCount = document.createElement('div');
+                        horseCount.className = 'horse-count';
+                        horseCount.textContent = player.horses[suit];
+                        
+                        horseBadge.appendChild(horseCount);
+                        horsesElement.appendChild(horseBadge);
+                    }
                 }
+                
+                // Update score display
+                document.getElementById(`score-${playerId}`).textContent = player.score;
+                document.getElementById(`player-${playerId}-score`).textContent = player.score;
+                
+                // Update wildcard status
+                const wildcardElement = document.getElementById(`wildcard-${playerId}`);
+                wildcardElement.textContent = player.wildcardAvailable ? 'Wildcard available' : 'Wildcard used';
             }
             
             function updateWildcardIndicators() {
                 for (let i = 1; i <= gameState.playerCount; i++) {
-                    const element = document.getElementById(`wildcard-${i}`);
-                    if (gameState.players[i].wildcardAvailable) {
-                        element.textContent = "Wildcard available";
-                        element.style.color = "#fdbb2d";
-                    } else {
-                        element.textContent = "Wildcard used";
-                        element.style.color = "#ff5252";
-                    }
+                    const wildcardElement = document.getElementById(`wildcard-${i}`);
+                    wildcardElement.textContent = gameState.players[i].wildcardAvailable ? 'Wildcard available' : 'Wildcard used';
                 }
             }
             
             function updateButtonStates() {
-                if (gameState.gameOver) {
-                    drawNormalButton.disabled = true;
-                    drawWildButton.disabled = true;
-                    nextTurnButton.disabled = true;
-                    return;
-                }
+                // Disable draw buttons if player has already drawn this turn
+                drawNormalButton.disabled = gameState.hasDrawnThisTurn;
+                drawWildButton.disabled = gameState.hasDrawnThisTurn || !gameState.players[gameState.currentPlayer].wildcardAvailable;
                 
-                drawNormalButton.disabled = false;
-                
-                if (gameState.players[gameState.currentPlayer].wildcardAvailable) {
-                    drawWildButton.disabled = false;
-                } else {
-                    drawWildButton.disabled = true;
-                }
-                
-                nextTurnButton.disabled = false;
-            }
-            
-            function updatePlayerHorseDisplay(playerId) {
-                const horsesContainer = document.getElementById(`horses-${playerId}`);
-                horsesContainer.innerHTML = '';
-                
-                for (const suit in gameState.players[playerId].horses) {
-                    if (gameState.players[playerId].horses[suit] > 0) {
-                        const horseBadge = document.createElement('div');
-                        horseBadge.className = 'horse-badge ' + suit;
-                        horseBadge.innerHTML = getSuitSymbol(suit) + 
-                            `<span class="horse-count">${gameState.players[playerId].horses[suit]}</span>`;
-                        horsesContainer.appendChild(horseBadge);
-                    }
-                }
-            }
-            
-            function updatePlayerHorseDisplays() {
-                for (let i = 1; i <= gameState.playerCount; i++) {
-                    updatePlayerHorseDisplay(i);
-                }
-            }
-            
-            function getSuitSymbol(suit) {
-                switch(suit) {
-                    case 'hearts': return '♥';
-                    case 'diamonds': return '♦';
-                    case 'clubs': return '♣';
-                    case 'spades': return '♠';
-                    default: return '';
-                }
-            }
-            
-            function updateScores() {
-                for (let i = 1; i <= gameState.playerCount; i++) {
-                    document.getElementById(`score-${i}`).textContent = gameState.players[i].score;
-                    document.getElementById(`player-${i}-score`).textContent = gameState.players[i].score;
-                    
-                    // Store the score for the next round
-                    gameState.initialScores[i] = gameState.players[i].score;
-                }
+                // Enable next turn button if player has drawn a card
+                nextTurnButton.disabled = !gameState.hasDrawnThisTurn;
             }
             
             function checkWinCondition() {
                 for (const suit in gameState.horses) {
                     if (gameState.horses[suit].position >= 8) {
-                        gameState.gameOver = true;
-                        calculateScores(suit);
-                        updateButtonStates();
-                        return true;
+                        endRound(suit);
+                        return;
                     }
                 }
-                return false;
             }
             
-            function calculateScores(winningSuit) {
-                const winningPlayerIds = findPlayerIdsBySuit(winningSuit);
-                if (winningPlayerIds.length === 0) return;
+            function endRound(winningSuit) {
+                gameState.gameOver = true;
                 
-                let historyMessage = `Round over! ${winningSuit} horse wins!`;
-                addHistory(historyMessage);
+                // Find the owner(s) of the winning horse
+                const winningPlayers = [];
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    if (gameState.players[i].horses[winningSuit]) {
+                        winningPlayers.push(i);
+                    }
+                }
                 
-                // Calculate scores based on final positions
+                if (winningPlayers.length === 0) {
+                    showMessage(`${winningSuit} horse won, but no player owns it!`);
+                    addHistory(`${winningSuit} horse won but no player owns it!`);
+                    return;
+                }
+                
+                // Calculate scores
+                let message = `${winningSuit} horse won! `;
+                let historyMessage = `${winningSuit} horse won! `;
+                
+                if (winningPlayers.length === 1) {
+                    message += `Player ${winningPlayers[0]} wins! `;
+                    historyMessage += `Player ${winningPlayers[0]} wins! `;
+                } else {
+                    message += `Players ${winningPlayers.join(', ')} win! `;
+                    historyMessage += `Players ${winningPlayers.join(', ')} win! `;
+                }
+                
+                // Calculate points based on other horses' positions
                 for (const suit in gameState.horses) {
-                    const playerIds = findPlayerIdsBySuit(suit);
-                    if (playerIds.length === 0) continue;
-                    
-                    const horsePosition = gameState.horses[suit].position;
-                    const pointDifference = 8 - horsePosition;
-                    
-                    if (suit === winningSuit) {
-                        // Winners gain points based on other horses' positions
-                        for (const playerId of winningPlayerIds) {
-                            let totalPoints = 0;
-                            for (const otherSuit in gameState.horses) {
-                                if (otherSuit !== winningSuit) {
-                                    const otherPosition = gameState.horses[otherSuit].position;
-                                    let points = (8 - otherPosition) * 5 * gameState.players[playerId].horses[winningSuit];
-                                    
-                                    // Double points if horse is at position 0
-                                    if (otherPosition === 0) {
-                                        points *= 2;
+                    if (suit !== winningSuit) {
+                        const position = gameState.horses[suit].position;
+                        
+                        // Winning players get points based on other horses' positions
+                        const pointsPerHorse = position * 5;
+                        
+                        for (const winningPlayer of winningPlayers) {
+                            const horseCount = gameState.players[winningPlayer].horses[suit] || 0;
+                            if (horseCount > 0) {
+                                const pointsEarned = pointsPerHorse * horseCount;
+                                gameState.players[winningPlayer].score += pointsEarned;
+                                message += `Player ${winningPlayer} earns $${pointsEarned} from ${suit}. `;
+                                historyMessage += `P${winningPlayer} +$${pointsEarned} from ${suit}. `;
+                            }
+                        }
+                        
+                        // Players with this horse lose points based on their horse's position
+                        for (let i = 1; i <= gameState.playerCount; i++) {
+                            if (!winningPlayers.includes(i) && gameState.players[i].horses[suit]) {
+                                const horseCount = gameState.players[i].horses[suit];
+                                const pointsLost = position * 5 * horseCount;
+                                gameState.players[i].score -= pointsLost;
+                                message += `Player ${i} loses $${pointsLost} from ${suit}. `;
+                                historyMessage += `P${i} -$${pointsLost} from ${suit}. `;
+                                
+                                // Double penalty if horse is at position 0
+                                if (position === 0) {
+                                    const additionalPenalty = 5 * horseCount;
+                                    gameState.players[i].score -= additionalPenalty;
+                                    for (const winningPlayer of winningPlayers) {
+                                        gameState.players[winningPlayer].score += additionalPenalty;
                                     }
-                                    
-                                    totalPoints += points;
-                                    gameState.players[playerId].score += points;
-                                    
-                                    historyMessage = `Player ${playerId} gains $${points} from ${otherSuit} horse at position ${otherPosition}`;
-                                    addHistory(historyMessage, 'reward');
+                                    message += `Double penalty: Player ${i} pays additional $${additionalPenalty}. `;
+                                    historyMessage += `Double penalty: P${i} -$${additionalPenalty}. `;
                                 }
                             }
                         }
-                    } else {
-                        // Losers lose points based on their position
-                        for (const playerId of playerIds) {
-                            let points = pointDifference * 5 * gameState.players[playerId].horses[suit];
-                            
-                            // Double points if horse is at position 0
-                            if (horsePosition === 0) {
-                                points *= 2;
-                            }
-                            
-                            gameState.players[playerId].score -= points;
-                            
-                            historyMessage = `Player ${playerId} loses $${points} for ${suit} horse at position ${horsePosition}`;
-                            addHistory(historyMessage, 'penalty');
-                        }
                     }
                 }
                 
-                // Update scores display
-                updateScores();
+                showMessage(message);
+                addHistory(historyMessage);
                 
-                // Increment round number
+                // Update scores display
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    document.getElementById(`score-${i}`).textContent = gameState.players[i].score;
+                    document.getElementById(`player-${i}-score`).textContent = gameState.players[i].score;
+                    // Store the score for the next round (cumulative)
+                    gameState.initialScores[i] = gameState.players[i].score;
+                }
+                
+                // Update button states
+                drawNormalButton.disabled = true;
+                drawWildButton.disabled = true;
+                nextTurnButton.disabled = true;
+                
+                // Increment round number for the next round
                 gameState.roundNumber++;
                 roundNumberElement.textContent = gameState.roundNumber;
-                
-                showMessage(`Game over! ${winningSuit} horse wins!`);
             }
             
             function nextTurn() {
-                // Reset UI for next turn
-                cardDisplayElement.innerHTML = "Draw a card to continue";
+                // Reset draw state for the next player
+                gameState.hasDrawnThisTurn = false;
                 
                 // Move to next player
                 gameState.currentPlayer = gameState.currentPlayer % gameState.playerCount + 1;
@@ -1338,36 +1483,37 @@
                     }
                 }
                 
-                // Update button states for the new player
+                // Update button states
                 updateButtonStates();
                 
-                showMessage(`Player ${gameState.currentPlayer}'s turn. Draw a card!`);
+                showMessage(`Player ${gameState.currentPlayer}'s turn`);
                 addHistory(`Player ${gameState.currentPlayer}'s turn`);
             }
             
-            function showMessage(msg) {
-                messageElement.textContent = msg;
+            function showMessage(message) {
+                messageElement.textContent = message;
             }
             
-            function addHistory(message, type) {
+            function addHistory(event) {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString();
                 const historyItem = document.createElement('div');
                 historyItem.className = 'history-item';
-                if (type === 'penalty') {
-                    historyItem.classList.add('penalty');
-                } else if (type === 'reward') {
-                    historyItem.classList.add('reward');
-                }
-                
-                historyItem.textContent = message;
+                historyItem.innerHTML = `<strong>[${timeString}]</strong> ${event}`;
                 historyContentElement.prepend(historyItem);
                 
-                // Keep only the last 50 history items
-                if (historyContentElement.children.length > 50) {
-                    historyContentElement.removeChild(historyContentElement.lastChild);
+                // Also add to game state history
+                gameState.history.unshift(`[${timeString}] ${event}`);
+            }
+            
+            function getSuitSymbol(suit) {
+                switch(suit) {
+                    case 'hearts': return '♥';
+                    case 'diamonds': return '♦';
+                    case 'clubs': return '♣';
+                    case 'spades': return '♠';
+                    default: return '';
                 }
-                
-                // Add to game state history
-                gameState.history.push(message);
             }
             
             function shuffleArray(array) {
@@ -1377,11 +1523,6 @@
                 }
                 return array;
             }
-            
-            // Adjust horse positions on window resize
-            window.addEventListener('resize', function() {
-                updateHorsePositions();
-            });
         });
     </script>
 </body>
