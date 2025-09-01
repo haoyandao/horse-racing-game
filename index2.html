@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horse Racing Card Game</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+            min-height: 100vh;
+            padding: 10px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 15px;
+        }
+        
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdbb2d;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            color: #fdbb2d;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .round-info {
+            font-size: 1rem;
+            background: rgba(253, 187, 45, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        .game-area {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .track {
+            background: rgba(139, 69, 19, 0.8);
+            border-radius: 10px;
+            padding: 10px;
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .finish-line {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: repeating-linear-gradient(
+                to bottom,
+                #000,
+                #000 8px,
+                #fff 8px,
+                #fff 16px
+            );
+            z-index: 1;
+        }
+        
+        .lane {
+            display: flex;
+            align-items: center;
+            height: 55px;
+            margin-bottom: 8px;
+            border-bottom: 2px dashed #555;
+            position: relative;
+        }
+        
+        .lane-label {
+            width: 80px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .position-indicator {
+            font-size: 0.8rem;
+            margin-top: 3px;
+            color: #fdbb2d;
+        }
+        
+        .horse {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 80px;
+            transition: left 0.5s ease;
+            z-index: 2;
+        }
+        
+        .hearts { background: #ff5252; color: white; }
+        .diamonds { background: #ff5252; color: white; }
+        .clubs { background: #4caf50; color: white; }
+        .spades { background: #2196f3; color: white; }
+        
+        .game-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .players-panel {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .player {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .player.active {
+            background: rgba(253, 187, 45, 0.3);
+            border: 2px solid #fdbb2d;
+        }
+        
+        .player-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        
+        .player-horses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 4px;
+        }
+        
+        .horse-badge {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            position: relative;
+        }
+        
+        .horse-count {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            background: #fdbb2d;
+            color: #000;
+            border-radius: 50%;
+            width: 14px;
+            height: 14px;
+            font-size: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .wildcard-status {
+            font-size: 0.7rem;
+            color: #fdbb2d;
+            margin-top: 4px;
+        }
+        
+        .action-panel {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #fdbb2d;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        button:hover {
+            background: #ffa000;
+            transform: translateY(-2px);
+        }
+        
+        button:disabled {
+            background: #777;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .card-display {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .message-box {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 8px;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .history-panel {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 12px;
+            overflow-y: auto;
+            max-height: 300px;
+            grid-column: 1 / -1;
+        }
+        
+        .history-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #fdbb2d;
+            text-align: center;
+            border-bottom: 1px solid #fdbb2d;
+            padding-bottom: 5px;
+        }
+        
+        .history-content {
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+        
+        .history-item {
+            margin-bottom: 6px;
+            padding: 6px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .penalty {
+            color: #ff5252;
+        }
+        
+        .reward {
+            color: #4caf50;
+        }
+        
+        .rules-btn {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fdbb2d;
+            border: 1px solid #fdbb2d;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            z-index: 100;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .close-btn {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        h2 {
+            color: #fdbb2d;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+        }
+        
+        h3 {
+            color: #fdbb2d;
+            margin: 12px 0 8px;
+            font-size: 1.2rem;
+        }
+        
+        ul {
+            margin-left: 15px;
+            margin-bottom: 12px;
+        }
+        
+        li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        
+        /* Pre-round setup styles */
+        .pre-round-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+            gap: 15px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .pre-round-title {
+            font-size: 1.8rem;
+            color: #fdbb2d;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .player-setup {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .player-setup-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 12px;
+            width: 150px;
+            text-align: center;
+        }
+        
+        .player-setup-card h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .ace-display {
+            font-size: 2.5rem;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 8px 0;
+        }
+        
+        .spinning-wheel {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #2196f3 0deg 45deg, 
+                #ff5252 45deg 90deg, 
+                #2196f3 90deg 135deg, 
+                #ff5252 135deg 180deg, 
+                #4caf50 180deg 225deg, 
+                #ff5252 225deg 270deg, 
+                #4caf50 270deg 315deg, 
+                #ff5252 315deg 360deg
+            );
+            position: relative;
+            margin: 15px 0;
+            transition: transform 3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 0 20px rgba(253, 187, 45, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .wheel-pointer {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 30px;
+            background: #fdbb2d;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            z-index: 2;
+        }
+        
+        .wheel-center {
+            width: 40px;
+            height: 40px;
+            background: #fdbb2d;
+            border-radius: 50%;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 0.8rem;
+        }
+        
+        .wheel-label {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            font-size: 1rem;
+            color: #fdbb2d;
+            text-align: center;
+            width: calc(100% - 16px);
+        }
+        
+        .setup-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        
+        .wheel-section-label {
+            position: absolute;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .wheel-section-label:nth-child(1) { top: 15px; left: 50%; transform: translateX(-50%); }
+        .wheel-section-label:nth-child(2) { top: 50%; right: 15px; transform: translateY(-50%); }
+        .wheel-section-label:nth-child(3) { bottom: 15px; left: 50%; transform: translateX(-50%); }
+        .wheel-section-label:nth-child(4) { top: 50%; left: 15px; transform: translateY(-50%); }
+        
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 10px;
+                gap: 10px;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .track {
+                height: 250px;
+                padding: 8px;
+            }
+            
+            .lane {
+                height: 45px;
+                margin-bottom: 6px;
+            }
+            
+            .lane-label {
+                width: 70px;
+                font-size: 0.9rem;
+            }
+            
+            .horse {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+                left: 70px;
+            }
+            
+            .players-panel, .action-panel {
+                max-height: 250px;
+            }
+            
+            .card-display {
+                height: 80px;
+                font-size: 1.5rem;
+            }
+            
+            .message-box {
+                height: 40px;
+                font-size: 0.9rem;
+            }
+            
+            button {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .history-panel {
+                max-height: 250px;
+            }
+            
+            .player-setup-card {
+                width: 130px;
+                padding: 10px;
+            }
+            
+            .spinning-wheel {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .pre-round-title {
+                font-size: 1.5rem;
+            }
+            
+            .modal-content {
+                padding: 15px;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            
+            .container {
+                padding: 8px;
+            }
+            
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            .track {
+                height: 220px;
+            }
+            
+            .lane {
+                height: 40px;
+            }
+            
+            .lane-label {
+                width: 60px;
+                font-size: 0.8rem;
+            }
+            
+            .horse {
+                width: 35px;
+                height: 35px;
+                font-size: 1.1rem;
+                left: 60px;
+            }
+            
+            .player-setup {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .player-setup-card {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .spinning-wheel {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .wheel-section-label {
+                font-size: 1rem;
+            }
+            
+            .setup-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .setup-controls button {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .rules-btn {
+                top: 10px;
+                right: 10px;
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Orientation-specific adjustments */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .track {
+                height: 200px;
+            }
+            
+            .lane {
+                height: 35px;
+            }
+            
+            .horse {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+            
+            .players-panel, .action-panel {
+                max-height: 200px;
+            }
+            
+            .pre-round-container {
+                justify-content: flex-start;
+                padding-top: 20px;
+            }
+            
+            .player-setup {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Horse Racing Card Game</h1>
+            <div class="round-info">Round: <span id="round-number">1</span></div>
+        </header>
+        
+        <div class="game-area">
+            <div class="track">
+                <div class="finish-line"></div>
+                <div class="lane">
+                    <div class="lane-label">
+                        Spades ♠
+                        <div class="position-indicator">Position: <span id="position-spades">0</span>/8</div>
+                    </div>
+                    <div class="horse spades" id="horse-spades">♠</div>
+                </div>
+                <div class="lane">
+                    <div class="lane-label">
+                        Hearts ♥
+                        <div class="position-indicator">Position: <span id="position-hearts">0</span>/8</div>
+                    </div>
+                    <div class="horse hearts" id="horse-hearts">♥</div>
+                </div>
+                <div class="lane">
+                    <div class="lane-label">
+                        Clubs ♣
+                        <div class="position-indicator">Position: <span id="position-clubs">0</span>/8</div>
+                    </div>
+                    <div class="horse clubs" id="horse-clubs">♣</div>
+                </div>
+                <div class="lane">
+                    <div class="lane-label">
+                        Diamonds ♦
+                        <div class="position-indicator">Position: <span id="position-diamonds">0</span>/8</div>
+                    </div>
+                    <div class="horse diamonds" id="horse-diamonds">♦</div>
+                </div>
+            </div>
+            
+            <div class="game-controls">
+                <div class="players-panel" id="players-panel">
+                    <h2>Players</h2>
+                    <!-- Players will be dynamically added here -->
+                </div>
+                
+                <div class="action-panel">
+                    <h2>Game Actions</h2>
+                    <div class="message-box" id="message">
+                        Setting up new round...
+                    </div>
+                    <div class="card-display" id="card-display">
+                        Draw a card to start
+                    </div>
+                    <button id="draw-normal">Draw from Normal Pile</button>
+                    <button id="draw-wild">Draw from Wildcard Pile</button>
+                    <button id="next-turn" disabled>Next Turn</button>
+                    <button id="new-round">New Round</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="history-panel">
+            <div class="history-title">Game History</div>
+            <div class="history-content" id="history-content">
+                <div class="history-item">Game started. All horses at position 0.</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pre-round setup screen -->
+    <div class="pre-round-container" id="pre-round">
+        <h2 class="pre-round-title">Round Setup</h2>
+        
+        <div class="player-setup" id="player-setup">
+            <!-- Player setup cards will be added here -->
+        </div>
+        
+        <div class="spinning-wheel-container">
+            <h3>Spinning Wheel</h3>
+            <div class="spinning-wheel" id="spinning-wheel">
+                <div class="wheel-pointer"></div>
+                <div class="wheel-center">SPIN</div>
+                <div class="wheel-section-label">♠</div>
+                <div class="wheel-section-label">♥</div>
+                <div class="wheel-section-label">♠</div>
+                <div class="wheel-section-label">♦</div>
+                <div class="wheel-section-label">♣</div>
+                <div class="wheel-section-label">♥</div>
+                <div class="wheel-section-label">♦</div>
+                <div class="wheel-section-label">♣</div>
+            </div>
+            <div class="wheel-label" id="wheel-result">Spin to determine bonus horses</div>
+        </div>
+        
+        <div class="setup-controls">
+            <button id="draw-aces">Draw Aces</button>
+            <button id="spin-wheel">Spin Wheel</button>
+            <button id="start-round" disabled>Start Round</button>
+        </div>
+    </div>
+    
+    <button class="rules-btn" id="rules-btn">Game Rules</button>
+    
+    <div class="modal" id="rules-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-rules">&times;</span>
+            <h2>Horse Racing Game Rules</h2>
+            <p>This game is played with 5 decks of poker cards. The objective is to get your horse to the finish line.</p>
+            
+            <h3>Setup</h3>
+            <ul>
+                <li>Each player starts with $5000</li>
+                <li>Players start with one horse but can acquire more</li>
+                <li>Horses start at position 0 and need to reach position 8 to win</li>
+            </ul>
+            
+            <h3>Gameplay</h3>
+            <ul>
+                <li>Players take turns drawing cards from either the normal pile or wildcard pile</li>
+                <li>Number cards (2-10, excluding 4): Move the corresponding horse forward 1 space</li>
+                <li>Jack, Queen, King: Move the corresponding horse backward 1 space</li>
+                <li>4: Move the corresponding horse back to start (position 0)</li>
+                <li>Ace: The player gets an additional horse of that suit</li>
+                <li>Wildcard draws double the movement effect</li>
+            </ul>
+            
+            <h3>Multi-Horse Ownership</h3>
+            <ul>
+                <li>Players can own multiple horses of different suits</li>
+                <li>When a player draws an Ace, they get an additional horse of that suit</li>
+                <li>Winnings and losses are calculated based on all owned horses</li>
+            </ul>
+            
+            <h3>Scoring</h3>
+            <ul>
+                <li>When a horse wins, the owner earns points based on other horses' positions</li>
+                <li>Other players lose points based on their horse's position</li>
+                <li>If a horse is at position 0 when another wins, points are doubled</li>
+                <li>Each point represents $5</li>
+                <li>Scores are cumulative across rounds</li>
+            </ul>
+            
+            <h3>Penalties</h3>
+            <ul>
+                <li>If a horse is at position 0 and a J, Q, or K of that suit is drawn, the owner pays $5 to all other players ($10 if from wildcard)</li>
+                <li>If a 4 is drawn, the horse moves to start and the owner pays all players based on the position lost (doubled if from wildcard)</li>
+            </ul>
+            
+            <button id="close-modal">Got It!</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Game state
+            const gameState = {
+                horses: {
+                    'hearts': { position: 0, element: document.getElementById('horse-hearts') },
+                    'diamonds': { position: 0, element: document.getElementById('horse-diamonds') },
+                    'clubs': { position: 0, element: document.getElementById('horse-clubs') },
+                    'spades': { position: 0, element: document.getElementById('horse-spades') }
+                },
+                players: {},
+                currentPlayer: 1,
+                gameOver: false,
+                roundNumber: 1,
+                history: [],
+                playerCount: 4, // Default player count
+                acePile: [], // Ace drawing pile
+                wheelResult: null, // Result of the spinning wheel
+                initialScores: {}, // Store initial scores for cumulative tracking
+                hasDrawnThisTurn: false // Track if the current player has drawn a card this turn
+            };
+            
+            // DOM elements
+            const messageElement = document.getElementById('message');
+            const cardDisplayElement = document.getElementById('card-display');
+            const drawNormalButton = document.getElementById('draw-normal');
+            const drawWildButton = document.getElementById('draw-wild');
+            const nextTurnButton = document.getElementById('next-turn');
+            const newRoundButton = document.getElementById('new-round');
+            const rulesButton = document.getElementById('rules-btn');
+            const rulesModal = document.getElementById('rules-modal');
+            const closeRulesButton = document.getElementById('close-rules');
+            const closeModalButton = document.getElementById('close-modal');
+            const historyContentElement = document.getElementById('history-content');
+            const roundNumberElement = document.getElementById('round-number');
+            const preRoundElement = document.getElementById('pre-round');
+            const playerSetupElement = document.getElementById('player-setup');
+            const playersPanelElement = document.getElementById('players-panel');
+            const drawAcesButton = document.getElementById('draw-aces');
+            const spinWheelButton = document.getElementById('spin-wheel');
+            const startRoundButton = document.getElementById('start-round');
+            const spinningWheelElement = document.getElementById('spinning-wheel');
+            const wheelResultElement = document.getElementById('wheel-result');
+            
+            // Initialize game
+            initializeGame();
+            
+            // Event listeners
+            drawNormalButton.addEventListener('click', function() {
+                drawCard(false);
+            });
+            
+            drawWildButton.addEventListener('click', function() {
+                if (gameState.players[gameState.currentPlayer].wildcardAvailable) {
+                    drawCard(true);
+                    gameState.players[gameState.currentPlayer].wildcardAvailable = false;
+                    updateWildcardIndicators();
+                    updateButtonStates();
+                } else {
+                    showMessage("You've already used your wildcard draw!");
+                    addHistory("Player " + gameState.currentPlayer + " tried to use wildcard but already used it");
+                }
+            });
+            
+            nextTurnButton.addEventListener('click', function() {
+                nextTurn();
+            });
+            
+            newRoundButton.addEventListener('click', function() {
+                showPreRoundSetup();
+            });
+            
+            rulesButton.addEventListener('click', function() {
+                rulesModal.style.display = 'flex';
+            });
+            
+            closeRulesButton.addEventListener('click', function() {
+                rulesModal.style.display = 'none';
+            });
+            
+            closeModalButton.addEventListener('click', function() {
+                rulesModal.style.display = 'none';
+            });
+            
+            drawAcesButton.addEventListener('click', function() {
+                drawAcesForPlayers();
+            });
+            
+            spinWheelButton.addEventListener('click', function() {
+                spinWheel();
+            });
+            
+            startRoundButton.addEventListener('click', function() {
+                startMainRound();
+            });
+            
+            // Close modal if clicked outside
+            window.addEventListener('click', function(event) {
+                if (event.target == rulesModal) {
+                    rulesModal.style.display = 'none';
+                }
+            });
+            
+            // Game functions
+            function initializeGame() {
+                // Ask for number of players
+                const playerCount = prompt("How many players? (2-8)", "4");
+                gameState.playerCount = parseInt(playerCount) || 4;
+                
+                if (gameState.playerCount < 2) gameState.playerCount = 2;
+                if (gameState.playerCount > 8) gameState.playerCount = 8;
+                
+                // Initialize initial scores
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    gameState.initialScores[i] = 5000;
+                }
+                
+                showPreRoundSetup();
+            }
+            
+            function showPreRoundSetup() {
+                // Show pre-round setup screen
+                preRoundElement.style.display = 'flex';
+                
+                // Reset game state for new round
+                gameState.gameOver = false;
+                gameState.wheelResult = null;
+                gameState.hasDrawnThisTurn = false;
+                
+                // Create player setup UI
+                playerSetupElement.innerHTML = '';
+                playersPanelElement.innerHTML = '<h2>Players</h2>';
+                
+                // Initialize players with cumulative scores
+                gameState.players = {};
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    gameState.players[i] = { 
+                        score: gameState.initialScores[i] || 5000, 
+                        horses: {},
+                        wildcardAvailable: true,
+                        ace: null
+                    };
+                    
+                    // Create player setup card
+                    const playerCard = document.createElement('div');
+                    playerCard.className = 'player-setup-card';
+                    playerCard.innerHTML = `
+                        <h3>Player ${i}</h3>
+                        <div class="ace-display" id="player-${i}-ace">?</div>
+                        <div>Score: $<span id="player-${i}-score">${gameState.players[i].score}</span></div>
+                        <div>Horses: <span id="player-${i}-horses">0</span></div>
+                    `;
+                    playerSetupElement.appendChild(playerCard);
+                    
+                    // Create player panel
+                    const playerElement = document.createElement('div');
+                    playerElement.className = 'player';
+                    playerElement.id = `player-${i}`;
+                    playerElement.innerHTML = `
+                        <div class="player-info">
+                            <div>Player ${i} - $<span id="score-${i}">${gameState.players[i].score}</span></div>
+                            <div class="player-horses" id="horses-${i}"></div>
+                            <div class="wildcard-status" id="wildcard-${i}">Wildcard available</div>
+                        </div>
+                    `;
+                    playersPanelElement.appendChild(playerElement);
+                }
+                
+                // Initialize ace pile (16 aces: 4 of each suit)
+                gameState.acePile = [];
+                const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+                for (const suit of suits) {
+                    for (let i = 0; i < 4; i++) {
+                        gameState.acePile.push(suit);
+                    }
+                }
+                
+                // Shuffle ace pile
+                shuffleArray(gameState.acePile);
+                
+                // Reset wheel
+                spinningWheelElement.style.transform = 'rotate(0deg)';
+                wheelResultElement.textContent = 'Spin to determine bonus horses';
+                
+                // Enable/disable buttons
+                drawAcesButton.disabled = false;
+                spinWheelButton.disabled = true;
+                startRoundButton.disabled = true;
+                
+                showMessage("Click 'Draw Aces' to assign horses to players");
+            }
+            
+            function drawAcesForPlayers() {
+                // Draw aces for each player
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    if (gameState.acePile.length > 0) {
+                        const aceSuit = gameState.acePile.pop();
+                        gameState.players[i].ace = aceSuit;
+                        gameState.players[i].horses[aceSuit] = 1;
+                        
+                        // Update UI
+                        const aceDisplay = document.getElementById(`player-${i}-ace`);
+                        aceDisplay.textContent = getSuitSymbol(aceSuit);
+                        aceDisplay.className = 'ace-display ' + aceSuit;
+                        
+                        const horsesCount = document.getElementById(`player-${i}-horses`);
+                        horsesCount.textContent = '1';
+                    }
+                }
+                
+                // Enable wheel spinning
+                drawAcesButton.disabled = true;
+                spinWheelButton.disabled = false;
+                
+                showMessage("Aces drawn! Now spin the wheel to determine bonus horses");
+            }
+            
+            function spinWheel() {
+                // Disable spin button during animation
+                spinWheelButton.disabled = true;
+                
+                // Generate random rotation (5-10 full rotations plus random angle)
+                const rotations = 5 + Math.floor(Math.random() * 5);
+                const randomAngle = Math.floor(Math.random() * 360);
+                const totalRotation = rotations * 360 + randomAngle;
+                
+                // Apply rotation with animation
+                spinningWheelElement.style.transform = `rotate(${totalRotation}deg)`;
+                
+                // Calculate result based on final angle
+                setTimeout(() => {
+                    const finalAngle = totalRotation % 360;
+                    let resultSuit;
+                    
+                    // Determine which section the pointer landed on
+                    if (finalAngle >= 0 && finalAngle < 45) resultSuit = 'spades';
+                    else if (finalAngle >= 45 && finalAngle < 90) resultSuit = 'hearts';
+                    else if (finalAngle >= 90 && finalAngle < 135) resultSuit = 'spades';
+                    else if (finalAngle >= 135 && finalAngle < 180) resultSuit = 'diamonds';
+                    else if (finalAngle >= 180 && finalAngle < 225) resultSuit = 'clubs';
+                    else if (finalAngle >= 225 && finalAngle < 270) resultSuit = 'hearts';
+                    else if (finalAngle >= 270 && finalAngle < 315) resultSuit = 'diamonds';
+                    else resultSuit = 'clubs';
+                    
+                    gameState.wheelResult = resultSuit;
+                    const suitSymbol = getSuitSymbol(resultSuit);
+                    wheelResultElement.innerHTML = `Wheel landed on <span style="font-size: 1.5em;">${suitSymbol}</span>! Bonus horses for ${resultSuit} players!`;
+                    
+                    // Award bonus horses to players with matching suit
+                    let bonusCount = 0;
+                    for (let i = 1; i <= gameState.playerCount; i++) {
+                        if (gameState.players[i].ace === resultSuit && gameState.acePile.length > 0) {
+                            const bonusSuit = gameState.acePile.pop();
+                            if (!gameState.players[i].horses[bonusSuit]) {
+                                gameState.players[i].horses[bonusSuit] = 0;
+                            }
+                            gameState.players[i].horses[bonusSuit] += 1;
+                            
+                            // Update UI
+                            const horsesCount = document.getElementById(`player-${i}-horses`);
+                            let totalHorses = 0;
+                            for (const suit in gameState.players[i].horses) {
+                                totalHorses += gameState.players[i].horses[suit];
+                            }
+                            horsesCount.textContent = totalHorses;
+                            
+                            bonusCount++;
+                        }
+                    }
+                    
+                    addHistory(`Wheel landed on ${resultSuit}. ${bonusCount} players received bonus horses.`);
+                    
+                    // Enable start round button
+                    startRoundButton.disabled = false;
+                    
+                    showMessage(`Wheel landed on ${resultSuit}! Click 'Start Round' to begin.`);
+                }, 3000);
+            }
+            
+            function startMainRound() {
+                // Hide pre-round setup
+                preRoundElement.style.display = 'none';
+                
+                // Update player displays with their horses
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    updatePlayerHorseDisplay(i);
+                }
+                
+                // Reset horse positions
+                for (const suit in gameState.horses) {
+                    gameState.horses[suit].position = 0;
+                    updateHorsePosition(suit);
+                    updatePositionIndicator(suit);
+                }
+                
+                // Set first player
+                gameState.currentPlayer = 1;
+                gameState.hasDrawnThisTurn = false;
+                
+                // Update active player highlight
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    const playerElement = document.getElementById(`player-${i}`);
+                    if (i === gameState.currentPlayer) {
+                        playerElement.classList.add('active');
+                    } else {
+                        playerElement.classList.remove('active');
+                    }
+                }
+                
+                // Update button states
+                updateButtonStates();
+                
+                // Add remaining aces to normal deck (simulated)
+                addHistory(`Added ${gameState.acePile.length} remaining Aces to the normal deck.`);
+                
+                showMessage(`Round ${gameState.roundNumber} started! Player ${gameState.currentPlayer}'s turn.`);
+                addHistory(`Round ${gameState.roundNumber} started!`);
+            }
+            
+            function drawCard(isWildcard) {
+                if (gameState.gameOver) {
+                    showMessage("The round is over. Start a new round to continue.");
+                    return;
+                }
+                
+                // Mark that the player has drawn this turn
+                gameState.hasDrawnThisTurn = true;
+                
+                // Simulate drawing a card
+                const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+                const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+                
+                const randomSuit = suits[Math.floor(Math.random() * suits.length)];
+                const randomValue = values[Math.floor(Math.random() * values.length)];
+                
+                // Display the card
+                let suitSymbol = '';
+                switch(randomSuit) {
+                    case 'hearts': suitSymbol = '♥'; break;
+                    case 'diamonds': suitSymbol = '♦'; break;
+                    case 'clubs': suitSymbol = '♣'; break;
+                    case 'spades': suitSymbol = '♠'; break;
+                }
+                
+                cardDisplayElement.innerHTML = `${randomValue} ${suitSymbol}`;
+                
+                // Apply card effect
+                applyCardEffect(randomSuit, randomValue, isWildcard);
+                
+                // Check for win condition
+                checkWinCondition();
+                
+                // Update UI
+                updateButtonStates();
+            }
+            
+            function applyCardEffect(suit, value, isWildcard) {
+                const multiplier = isWildcard ? 2 : 1;
+                let message = '';
+                let historyMessage = '';
+                
+                switch(value) {
+                    case '2':
+                    case '3':
+                    case '5':
+                    case '6':
+                    case '7':
+                    case '8':
+                    case '9':
+                    case '10':
+                        moveHorse(suit, 1 * multiplier);
+                        message = `${suit} horse moves forward ${multiplier} space(s)!`;
+                        historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} (${isWildcard ? 'Wildcard' : 'Normal'}) - ${suit} moves forward ${multiplier}`;
+                        break;
+                    case 'J':
+                    case 'Q':
+                    case 'K':
+                        moveHorse(suit, -1 * multiplier);
+                        message = `${suit} horse moves backward ${multiplier} space(s)!`;
+                        historyMessage = `Player ${gameState.currentPlayer} drew ${value} of ${suit} (${isWildcard ? 'Wildcard' : 'Normal'}) - ${suit} moves backward ${multiplier}`;
+                        
+                        // Apply penalty if horse is at position 0
+                        if (gameState.horses[suit].position === 0) {
+                            const penaltyAmount = 5 * multiplier;
+                            message += ` Penalty: ${suit} owner pays $${penaltyAmount} to all players!`;
+                            historyMessage += ` - Penalty: $${penaltyAmount} paid to all players`;
+                            
+                            // Find owner of the horse
+                            for (let i = 1; i <= gameState.playerCount; i++) {
+                                if (gameState.players[i].horses[suit]) {
+                                    // Owner pays each other player
+                                    for (let j = 1; j <= gameState.playerCount; j++) {
+                                        if (i !== j) {
+                                            gameState.players[j].score += penaltyAmount;
+                                            gameState.players[i].score -= penaltyAmount;
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    case '4':
+                        const positionLost = gameState.horses[suit].position;
+                        moveHorse(suit, -positionLost * multiplier);
+                        message = `${suit} horse moves back to start!`;
+                        historyMessage = `Player ${gameState.currentPlayer} drew 4 of ${suit} (${isWildcard ? 'Wildcard' : 'Normal'}) - ${suit} moves back to start`;
+                        
+                        // Apply penalty based on position lost
+                        if (positionLost > 0) {
+                            const penaltyAmount = positionLost * 5 * multiplier;
+                            message += ` Penalty: ${suit} owner pays $${penaltyAmount} to all players!`;
+                            historyMessage += ` - Penalty: $${penaltyAmount} paid to all players`;
+                            
+                            // Find owner of the horse
+                            for (let i = 1; i <= gameState.playerCount; i++) {
+                                if (gameState.players[i].horses[suit]) {
+                                    // Owner pays each other player
+                                    for (let j = 1; j <= gameState.playerCount; j++) {
+                                        if (i !== j) {
+                                            gameState.players[j].score += penaltyAmount;
+                                            gameState.players[i].score -= penaltyAmount;
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    case 'A':
+                        // Player gets an additional horse of this suit
+                        const player = gameState.currentPlayer;
+                        if (!gameState.players[player].horses[suit]) {
+                            gameState.players[player].horses[suit] = 0;
+                        }
+                        gameState.players[player].horses[suit] += 1;
+                        message = `Player ${player} gets an additional ${suit} horse!`;
+                        historyMessage = `Player ${player} drew Ace of ${suit} (${isWildcard ? 'Wildcard' : 'Normal'}) - Gains an additional ${suit} horse`;
+                        updatePlayerHorseDisplay(player);
+                        break;
+                }
+                
+                showMessage(message);
+                addHistory(historyMessage);
+                
+                // Update scores display
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    document.getElementById(`score-${i}`).textContent = gameState.players[i].score;
+                    document.getElementById(`player-${i}-score`).textContent = gameState.players[i].score;
+                }
+            }
+            
+            function moveHorse(suit, spaces) {
+                gameState.horses[suit].position += spaces;
+                
+                // Ensure position doesn't go below 0
+                if (gameState.horses[suit].position < 0) {
+                    gameState.horses[suit].position = 0;
+                }
+                
+                updateHorsePosition(suit);
+                updatePositionIndicator(suit);
+            }
+            
+            function updateHorsePosition(suit) {
+                const horse = gameState.horses[suit];
+                const trackWidth = document.querySelector('.track').offsetWidth - 140;
+                const positionPercentage = (horse.position / 8) * 100;
+                const leftPosition = 80 + (trackWidth * (positionPercentage / 100));
+                
+                horse.element.style.left = `${leftPosition}px`;
+            }
+            
+            function updatePositionIndicator(suit) {
+                document.getElementById(`position-${suit}`).textContent = gameState.horses[suit].position;
+            }
+            
+            function updatePlayerHorseDisplay(playerId) {
+                const player = gameState.players[playerId];
+                const horsesElement = document.getElementById(`horses-${playerId}`);
+                horsesElement.innerHTML = '';
+                
+                for (const suit in player.horses) {
+                    if (player.horses[suit] > 0) {
+                        const horseBadge = document.createElement('div');
+                        horseBadge.className = `horse-badge ${suit}`;
+                        horseBadge.textContent = getSuitSymbol(suit);
+                        
+                        const horseCount = document.createElement('div');
+                        horseCount.className = 'horse-count';
+                        horseCount.textContent = player.horses[suit];
+                        
+                        horseBadge.appendChild(horseCount);
+                        horsesElement.appendChild(horseBadge);
+                    }
+                }
+                
+                // Update score display
+                document.getElementById(`score-${playerId}`).textContent = player.score;
+                document.getElementById(`player-${playerId}-score`).textContent = player.score;
+                
+                // Update wildcard status
+                const wildcardElement = document.getElementById(`wildcard-${playerId}`);
+                wildcardElement.textContent = player.wildcardAvailable ? 'Wildcard available' : 'Wildcard used';
+            }
+            
+            function updateWildcardIndicators() {
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    const wildcardElement = document.getElementById(`wildcard-${i}`);
+                    wildcardElement.textContent = gameState.players[i].wildcardAvailable ? 'Wildcard available' : 'Wildcard used';
+                }
+            }
+            
+            function updateButtonStates() {
+                // Disable draw buttons if player has already drawn this turn
+                drawNormalButton.disabled = gameState.hasDrawnThisTurn;
+                drawWildButton.disabled = gameState.hasDrawnThisTurn || !gameState.players[gameState.currentPlayer].wildcardAvailable;
+                
+                // Enable next turn button if player has drawn a card
+                nextTurnButton.disabled = !gameState.hasDrawnThisTurn;
+            }
+            
+            function checkWinCondition() {
+                for (const suit in gameState.horses) {
+                    if (gameState.horses[suit].position >= 8) {
+                        endRound(suit);
+                        return;
+                    }
+                }
+            }
+            
+            function endRound(winningSuit) {
+                gameState.gameOver = true;
+                
+                // Find the owner(s) of the winning horse
+                const winningPlayers = [];
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    if (gameState.players[i].horses[winningSuit]) {
+                        winningPlayers.push(i);
+                    }
+                }
+                
+                if (winningPlayers.length === 0) {
+                    showMessage(`${winningSuit} horse won, but no player owns it!`);
+                    addHistory(`${winningSuit} horse won but no player owns it!`);
+                    return;
+                }
+                
+                // Calculate scores
+                let message = `${winningSuit} horse won! `;
+                let historyMessage = `${winningSuit} horse won! `;
+                
+                if (winningPlayers.length === 1) {
+                    message += `Player ${winningPlayers[0]} wins! `;
+                    historyMessage += `Player ${winningPlayers[0]} wins! `;
+                } else {
+                    message += `Players ${winningPlayers.join(', ')} win! `;
+                    historyMessage += `Players ${winningPlayers.join(', ')} win! `;
+                }
+                
+                // Calculate points based on other horses' positions
+                for (const suit in gameState.horses) {
+                    if (suit !== winningSuit) {
+                        const position = gameState.horses[suit].position;
+                        
+                        // Winning players get points based on other horses' positions
+                        const pointsPerHorse = position * 5;
+                        
+                        for (const winningPlayer of winningPlayers) {
+                            const horseCount = gameState.players[winningPlayer].horses[suit] || 0;
+                            if (horseCount > 0) {
+                                const pointsEarned = pointsPerHorse * horseCount;
+                                gameState.players[winningPlayer].score += pointsEarned;
+                                message += `Player ${winningPlayer} earns $${pointsEarned} from ${suit}. `;
+                                historyMessage += `P${winningPlayer} +$${pointsEarned} from ${suit}. `;
+                            }
+                        }
+                        
+                        // Players with this horse lose points based on their horse's position
+                        for (let i = 1; i <= gameState.playerCount; i++) {
+                            if (!winningPlayers.includes(i) && gameState.players[i].horses[suit]) {
+                                const horseCount = gameState.players[i].horses[suit];
+                                const pointsLost = position * 5 * horseCount;
+                                gameState.players[i].score -= pointsLost;
+                                message += `Player ${i} loses $${pointsLost} from ${suit}. `;
+                                historyMessage += `P${i} -$${pointsLost} from ${suit}. `;
+                                
+                                // Double penalty if horse is at position 0
+                                if (position === 0) {
+                                    const additionalPenalty = 5 * horseCount;
+                                    gameState.players[i].score -= additionalPenalty;
+                                    for (const winningPlayer of winningPlayers) {
+                                        gameState.players[winningPlayer].score += additionalPenalty;
+                                    }
+                                    message += `Double penalty: Player ${i} pays additional $${additionalPenalty}. `;
+                                    historyMessage += `Double penalty: P${i} -$${additionalPenalty}. `;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                showMessage(message);
+                addHistory(historyMessage);
+                
+                // Update scores display
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    document.getElementById(`score-${i}`).textContent = gameState.players[i].score;
+                    document.getElementById(`player-${i}-score`).textContent = gameState.players[i].score;
+                    // Store the score for the next round (cumulative)
+                    gameState.initialScores[i] = gameState.players[i].score;
+                }
+                
+                // Update button states
+                drawNormalButton.disabled = true;
+                drawWildButton.disabled = true;
+                nextTurnButton.disabled = true;
+                
+                // Increment round number for the next round
+                gameState.roundNumber++;
+                roundNumberElement.textContent = gameState.roundNumber;
+            }
+            
+            function nextTurn() {
+                // Reset draw state for the next player
+                gameState.hasDrawnThisTurn = false;
+                
+                // Move to next player
+                gameState.currentPlayer = gameState.currentPlayer % gameState.playerCount + 1;
+                
+                // Update active player highlight
+                for (let i = 1; i <= gameState.playerCount; i++) {
+                    const playerElement = document.getElementById(`player-${i}`);
+                    if (i === gameState.currentPlayer) {
+                        playerElement.classList.add('active');
+                    } else {
+                        playerElement.classList.remove('active');
+                    }
+                }
+                
+                // Update button states
+                updateButtonStates();
+                
+                showMessage(`Player ${gameState.currentPlayer}'s turn`);
+                addHistory(`Player ${gameState.currentPlayer}'s turn`);
+            }
+            
+            function showMessage(message) {
+                messageElement.textContent = message;
+            }
+            
+            function addHistory(event) {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString();
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.innerHTML = `<strong>[${timeString}]</strong> ${event}`;
+                historyContentElement.prepend(historyItem);
+                
+                // Also add to game state history
+                gameState.history.unshift(`[${timeString}] ${event}`);
+            }
+            
+            function getSuitSymbol(suit) {
+                switch(suit) {
+                    case 'hearts': return '♥';
+                    case 'diamonds': return '♦';
+                    case 'clubs': return '♣';
+                    case 'spades': return '♠';
+                    default: return '';
+                }
+            }
+            
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+        });
+    </script>
+</body>
+</html>
